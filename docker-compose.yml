@@ -15,9 +15,12 @@ services:
       - census3
 
   explorer:
-    image: ghcr.io/vocdoni/explorer-ui:${EXPLORER_UI_TAG:-master-static}
-    environment:
-      VOCDONI_ENVIRONMENT: stg
+    image: ghcr.io/vocdoni/explorer-ui
+    build:
+      context: https://github.com/vocdoni/explorer-ui.git#local-demo-monkeypatch
+      dockerfile: Dockerfile.static
+      args:
+        VOCDONI_ENVIRONMENT: local
     ports:
       - 127.0.0.1:8082:80
     depends_on:
