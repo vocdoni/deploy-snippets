@@ -54,6 +54,7 @@ services:
 
   census3:
     image: ghcr.io/vocdoni/census3:stage
+    env_file: ".env"
     ports:
       - 127.0.0.1:8083:7788
     sysctls:
@@ -61,7 +62,7 @@ services:
     volumes:
       - census3:/app/data
     command:
-      - --web3Providers=https://eth-rpc.gateway.pokt.network/
+      - --web3Providers=${WEB3}
       - --port=7788
       - --logLevel=debug
       - --connectKey=census3key
