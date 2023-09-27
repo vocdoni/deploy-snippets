@@ -20,7 +20,7 @@ services:
       context: https://github.com/vocdoni/explorer-ui.git#local-demo-monkeypatch
       dockerfile: Dockerfile.static
       args:
-        VOCDONI_ENVIRONMENT: local
+        VOCDONI_ENVIRONMENT: stg
     ports:
       - 127.0.0.1:8082:80
     depends_on:
